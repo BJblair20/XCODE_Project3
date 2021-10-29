@@ -26,19 +26,19 @@ class BreakModel : NSObject, SCNSceneRendererDelegate, SCNPhysicsContactDelegate
         if(ball!.presentation.position.y < respawnY) {
             ball!.physicsBody?.velocity = SCNVector3Zero
             ball!.position = ballStartPosition
-        }
+        } 
     }
-
+    
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
         if(contact.nodeA == ball) {
-            print(contact.nodeB.name!)
+            //print(contact.nodeB.name!)
             contact.nodeB.removeFromParentNode()
         } else if(contact.nodeB == ball) {
-            print(contact.nodeA.name!)
-           contact.nodeA.removeFromParentNode()
+            //print(contact.nodeA.name!)
+            contact.nodeA.removeFromParentNode()
         }
     }
-
+    
     func movePaddle(x position: Float) {
         let minX = Float(-90) // experimentally determined
         let maxX = Float(90) // experimentally determined
