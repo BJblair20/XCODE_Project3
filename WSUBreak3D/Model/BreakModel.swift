@@ -31,9 +31,11 @@ class BreakModel : NSObject, SCNSceneRendererDelegate, SCNPhysicsContactDelegate
 
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
         if(contact.nodeA == ball) {
-            print("collision")
+            print(contact.nodeB.name!)
+            contact.nodeB.removeFromParentNode()
         } else if(contact.nodeB == ball) {
-            print("collision")
+            print(contact.nodeA.name!)
+           contact.nodeA.removeFromParentNode()
         }
     }
 
