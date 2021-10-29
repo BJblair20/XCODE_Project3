@@ -12,6 +12,7 @@
 		97DB82B1272C68790024D9A0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DB82B0272C68790024D9A0 /* GameViewController.swift */; };
 		97DB82B4272C68790024D9A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97DB82B2272C68790024D9A0 /* Main.storyboard */; };
 		97DB82B6272C687A0024D9A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97DB82B5272C687A0024D9A0 /* Assets.xcassets */; };
+		97DB82C1272C7AE70024D9A0 /* BreakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DB82C0272C7AE70024D9A0 /* BreakModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		97DB82B3272C68790024D9A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97DB82B5272C687A0024D9A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97DB82B7272C687A0024D9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97DB82C0272C7AE70024D9A0 /* BreakModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		97DB82AB272C68790024D9A0 /* WSUBreak3D */ = {
 			isa = PBXGroup;
 			children = (
+				97DB82BF272C7AB90024D9A0 /* Model */,
 				97DB82BD272C68E00024D9A0 /* Controller */,
 				97DB82AE272C68790024D9A0 /* art.scnassets */,
 				97DB82BE272C68F50024D9A0 /* View */,
@@ -78,6 +81,14 @@
 				97DB82B2272C68790024D9A0 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		97DB82BF272C7AB90024D9A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97DB82C0272C7AE70024D9A0 /* BreakModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97DB82C1272C7AE70024D9A0 /* BreakModel.swift in Sources */,
 				97DB82B1272C68790024D9A0 /* GameViewController.swift in Sources */,
 				97DB82AD272C68790024D9A0 /* AppDelegate.swift in Sources */,
 			);
