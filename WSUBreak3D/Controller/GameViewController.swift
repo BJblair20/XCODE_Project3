@@ -10,39 +10,36 @@ import QuartzCore
 import SceneKit
 
 class GameViewController: UIViewController {
-
+    var scnView : SCNView?
+    var paddle : SCNNode?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // create a new scene
         let scene = SCNScene(named: "art.scnassets/Break.scn")!
-        
-        // create and add a camera to the scene
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        scene.rootNode.addChildNode(cameraNode)
-        
-        // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
-        
+        paddle = scene.rootNode.childNode(withName: "Paddle", recursively: true)
         // retrieve the SCNView
-        let scnView = self.view as! SCNView
+        scnView = self.view as? SCNView
         
         // set the scene to the view
-        scnView.scene = scene
-        
-        // allows the user to manipulate the camera
-        scnView.allowsCameraControl = true
+        scnView!.scene = scene
         
         // show statistics such as fps and timing information
-        scnView.showsStatistics = true
+        scnView!.showsStatistics = true
         
         // configure the view
-        scnView.backgroundColor = UIColor.black
+        //scnView!.backgroundColor = UIColor.black
         
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
+        scnView!.addGestureRecognizer(tapGesture)
+    }
+    
+    @IBAction func movePaddle(recognizer : UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: view)
+        let newX = min(max(Float(translation.x), -180), 180) * 0.05
+        paddle!.position = SCNVector3(newX, paddle!.position.y, 0)
     }
     
     @objc
