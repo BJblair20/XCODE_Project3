@@ -27,7 +27,9 @@ class GameViewController: UIViewController {
     @IBAction func movePaddle(recognizer : UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: view)
         let newX = min(max(Float(translation.x), -180), 180) * 0.05
-        model.movePaddle(x: newX)
+        let newY = Float(translation.y) //* 0.05
+        model.movePaddle(translation: translation)
+        
     }
     
     override var shouldAutorotate: Bool {

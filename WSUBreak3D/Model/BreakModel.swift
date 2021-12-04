@@ -39,10 +39,16 @@ class BreakModel : NSObject, SCNSceneRendererDelegate, SCNPhysicsContactDelegate
         }
     }
     
-    func movePaddle(x position: Float) {
+    //x position: Float
+    func movePaddle(translation: CGPoint) {
+        paddle!.physicsBody?.isAffectedByGravity=false
         let minX = Float(-90) // experimentally determined
         let maxX = Float(90) // experimentally determined
-        let newX = min(max(Float(position), minX), maxX)
-        paddle!.position = SCNVector3(newX, paddle!.position.y, 0)
+        //let newX = min(max(Float(position), minX), maxX)
+        let newX=min(max(Float(translation.x),-180),180)*0.05
+        //let newY=min(max(Float(translation.y),-180),180)*0.05
+        let newY=Float(translation.y)
+        //paddle!.position.y
+        paddle!.position = SCNVector3(newX, newY, 0)
     }
 }
